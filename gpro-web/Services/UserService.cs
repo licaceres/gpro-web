@@ -6,33 +6,42 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using gpro_web.Entities;
+//using gpro_web.Entities;
+using gpro_web.Models;
 using gpro_web.Helpers;
+using gpro_web.Controllers;
 
 namespace gpro_web.Services
 {
+
     public interface IUserService
     {
-        User Authenticate(string username, string password);
-        IEnumerable<User> GetAll();
+
+        Usuario Authenticate(string username, string password);
+        IEnumerable<Usuario> GetAll();
     }
 
     public class UserService : IUserService
     {
-        // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<User> _users = new List<User>
-        {
-            new User { Id = 1, TipoUsuario = "admin", IdEmpleado = 1, Username = "test", Password = "test" }
-        };
+        /*****************************************************************************/
+        /* ACA CREO QUE DEBERIAMOS CARGAR LOS USUARIOS DE LA BASE EN LA LISTA _users */
 
-        private readonly AppSettings _appSettings;
+        // users hardcoded for simplicity, store in a db with hashed passwords in production applications
+        private List<Usuario> _users = new List<Usuario>
+        {
+           new Usuario { Id = 1, Username = "test", Password = "test", IdEmpleado = 1, IdTipoUsuario = 1 }
+        };
+        
+       
+
+    private readonly AppSettings _appSettings;
 
         public UserService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
         }
 
-        public User Authenticate(string username, string password)
+        public Usuario Authenticate(string username, string password)
         {
             var user = _users.SingleOrDefault(x => x.Username == username && x.Password == password);
 
@@ -61,7 +70,7 @@ namespace gpro_web.Services
             return user;
         }
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Usuario> GetAll()
         {
             // return users without passwords
             return _users.Select(x => {

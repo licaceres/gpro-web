@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using gpro_web.Services;
-using gpro_web.Entities;
+//using gpro_web.Entities;
+using gpro_web.Models;
 
 namespace gpro_web.Controllers
 {
@@ -19,7 +20,7 @@ namespace gpro_web.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]User userParam)
+        public IActionResult Authenticate([FromBody]Usuario userParam)
         {
             var user = _userService.Authenticate(userParam.Username, userParam.Password);
 

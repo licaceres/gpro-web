@@ -14,6 +14,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Logging;
+using gpro_web.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace gpro_web
 {
@@ -29,6 +31,8 @@ namespace gpro_web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<gpro_dbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("GproDB")));
+
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
