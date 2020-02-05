@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using gpro_web.Dtos;
 using gpro_web.Models;
+using System.Linq;
 
 namespace WebApi.Helpers
 {
@@ -12,6 +13,10 @@ namespace WebApi.Helpers
             CreateMap<UserDto, Usuario>();
             CreateMap<Cliente, ClienteDto>();
             CreateMap<ClienteDto, Cliente>();
+            CreateMap<Empleado, UserEmplDto>()
+                .ForMember(d => d.Id, a => a.MapFrom(s => s.Usuario.ElementAt(0).Id))
+                .ForMember(d => d.IdRol, a => a.MapFrom(s => s.Usuario.ElementAt(0).IdRol))
+                .ForMember(d => d.Username, a => a.MapFrom(s => s.Usuario.ElementAt(0).Username));
         }
     }
 }

@@ -13,6 +13,7 @@ namespace gpro_web.Services
         Usuario Authenticate(string username, string password);
         IEnumerable<Usuario> GetAll();
         Usuario GetById(int id);
+        List<Object> GetByApyNom(string apellido, string nombre);
         Usuario Create(Usuario usuario, string password);
         void Update(Usuario usuario, string password = null);
         void Delete(int id);
@@ -55,6 +56,34 @@ namespace gpro_web.Services
         public Usuario GetById(int id)
         {
             return _context.Usuario.Find(id);
+        }
+
+        public List<Object> GetByApyNom(string apellido, string nombre)
+        {
+            List<Object> usuarios = new List <Object>();
+            var empleados = from b in _context.Empleado
+                           where b.ApellidoEmpleado.Contains(apellido) && b.NombreEmpleado.Contains(nombre)
+                           select b;
+            if (empleados.ToList().Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                int i;
+                
+                for (i = 0; i < empleados.ToList().Count; i++)
+                {
+                    var aux = from usr in _context.Usuario
+                              where usr.IdEmpleadoNavigation.IdEmpleado.Equals(empleados.ToList().ElementAt(i).IdEmpleado)
+                              select usr;
+
+
+                   
+                    usuarios.Add(aux.ToList().ElementAt(0).IdEmpleadoNavigation);
+                }
+            }
+            return usuarios;
         }
 
         public Usuario Create(Usuario usuario, string password)

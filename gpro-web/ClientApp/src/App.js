@@ -12,6 +12,7 @@ import { Register } from './components/Register';
 import { Home } from './components/Home';
 import { Cliente } from './components/Cliente';
 import { NuevoCliente } from './components/NuevoCliente';
+import { Usuario } from './components/Usuario';
 
 /*import { Recov } from './components/Recov';*/
 import Logo from '../src/assets/img/logo-gpro-nav-c.png';
@@ -187,9 +188,11 @@ export default class App extends Component {
                                     </a>
                                     {/* <!-- Submenu content --> */}
                                     <div id='submenu5' className="collapse sidebar-submenu">
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
+
+                                        <Link to="/usuario" className="list-group-item list-group-item-action bg-dark text-white">
+                                            <span clasName="menu-collapsed">Buscar/Modificar</span>
+                                        </Link>
+
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
                                             <span className="menu-collapsed">Lorem Ipsum</span>
                                         </a>
@@ -241,6 +244,7 @@ export default class App extends Component {
                                 {/*<Route path="/clientes" component={Cliente} />*/}
 
                                 <PrivateRoute path="/nuevocliente" roles={["Admin", 'PM']} component={NuevoCliente} />
+                                <PrivateRoute path="/usuario" roles={["Admin"]} component={Usuario} />
 
                                 {/* 
                                 <h1 className="display-4">Collapsing Sidebar Menu</h1>
