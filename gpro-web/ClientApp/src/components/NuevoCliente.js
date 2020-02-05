@@ -129,7 +129,7 @@ export class NuevoCliente extends Component {
                                         </div>
 
                                         <div className="form-group">
-                                            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>Guardar</button>
+                                            <button type="submit" className="btn btn-primary">Guardar</button>
                                         </div>
                                         {status &&
                                             <div className={'alert alert-danger'}>El CUIT ya existe en la Base de Datos.</div>

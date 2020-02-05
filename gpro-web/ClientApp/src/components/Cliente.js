@@ -10,7 +10,7 @@ export class Cliente extends Component {
 
     constructor(props) {
         super(props);
-         
+
         this.state = {
             consulta: [],
             mostrar: false,
@@ -22,10 +22,10 @@ export class Cliente extends Component {
             mostrar: false
         });
     }
-    
+
     render() {
         const { mostrar, consulta } = this.state;
-        
+
         return (
             <div>
                 <Formik
@@ -65,49 +65,54 @@ export class Cliente extends Component {
                                         setStatus(error);
                                     })
 
-                            } else {
-                                clienteService.getById(values.cuit)
-                                    .then(
-                                        consulta => {
-                                            this.setState({ consulta: [consulta], mostrar: true });
-                                            setSubmitting(false);
-                                        },
-                                        error => {
-                                            setSubmitting(false);
-                                            setStatus(error);
-                                        });
-                            }
+                        } else {
+                            clienteService.getById(values.cuit)
+                                .then(
+                                    consulta => {
+                                        this.setState({ consulta: [consulta], mostrar: true });
+                                        setSubmitting(false);
+                                    },
+                                    error => {
+                                        setSubmitting(false);
+                                        setStatus(error);
+                                    });
                         }
                     }
-                    
-                    
+                    }
+
+
                 >
                     {({ errors, status, touched, isSubmitting }) => (
-                        <div>
-                            <div className="row">
-                                <div className="col">
-                                    <Form>
+
+                        <div className="border rounded pl-2 pr-2 pt-2">
+                            <Form>
+                                <h4 className="border-bottom pb-2">Buscar / Actualizar [ Cliente ]</h4>
+                                <div className="row">
+                                    <div className="col">
                                         <div className="form-group">
-                                            Nombre/Apellido/Razón social:
-                                                        <Field name="dato" type="text" className={'form-control' + (errors.dato && touched.dato ? ' is-invalid' : '')} />
+                                            <label htmlFor="nomaperz" className="col-form-label">Nombre/Apellido/Razón social:</label>
+                                            <Field name="dato" type="text" className={'form-control' + (errors.dato && touched.dato ? ' is-invalid' : '')} />
                                             <ErrorMessage name="dato" component="div" className="invalid-feedback" />
-                                            CUIT:
-                                                        <Field name="cuit" type="text" className={'form-control' + (errors.cuit && touched.cuit ? ' is-invalid' : '')} />
+                                        </div>
+                                    </div>
+                                    <div className="col">
+                                        <div className="form-group">
+                                            <label htmlFor="cuit" className="col-form-label">CUIT:</label>
+                                            <Field name="cuit" type="text" className={'form-control' + (errors.cuit && touched.cuit ? ' is-invalid' : '')} />
                                             <ErrorMessage name="cuit" component="div" className="invalid-feedback" />
                                         </div>
-
-                                        <div className="form-group">
-                                            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>Buscar</button>
-                                            <button type="reset" className="btn btn-primary ml-4" onClick={this.limpiarPantalla} disabled={isSubmitting}>Limpiar</button>
-                                        </div>
-                                        {status &&
-                                            <div className={'alert alert-danger'}>Búsqueda sin resultados.</div>
-                                        }
-                                    </Form>
-
+                                    </div>
                                 </div>
-                            </div>
+                                <div className="form-group">
+                                    <button type="submit" className="btn btn-primary" disabled={isSubmitting}>Buscar</button>
+                                    <button type="reset" className="btn btn-primary ml-4" onClick={this.limpiarPantalla} disabled={isSubmitting}>Limpiar</button>
+                                </div>
+                                {status &&
+                                    <div className={'alert alert-danger'}>Búsqueda sin resultados.</div>
+                                }
+                            </Form>
                         </div>
+
                     )}
                 </Formik>
 
@@ -118,7 +123,7 @@ export class Cliente extends Component {
 
             </div>
         );
-        
+
     }
 }
 
