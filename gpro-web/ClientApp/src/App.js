@@ -100,145 +100,149 @@ export default class App extends Component {
                         {/* Bootstrap row */}
                         <div className="row" id="body-row">
                             {/* <!-- Sidebar --> */}
-                            <div id="sidebar-container" className="sidebar-expanded d-none d-md-block">
-                                {/* <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' --> */}
-                                {/* <!-- Bootstrap List Group --> */}
-                                <ul className="list-group">
-                                    {/* <!-- Separator with title --> */}
-                                    <li className="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                                        <small>MENU</small>
-                                    </li>
-                                    {/* <!-- /END Separator --> */}
-                                    {/* <!-- Menu with submenu --> */}
-                                    <a href="#submenu1" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                                        <div className="d-flex w-100 justify-content-start align-items-center">
-                                            <span className="fa fa-users fa-fw mr-3"></span>
-                                            <span className="menu-collapsed">Clientes</span>
-                                            <span className="submenu-icon ml-auto"></span>
+                            
+                                <div id="sidebar-container" className="sidebar-expanded d-none d-md-block">
+                                    {/* <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' --> */}
+                                    {/* <!-- Bootstrap List Group --> */}
+                                    <ul className="list-group">
+                                        {/* <!-- Separator with title --> */}
+                                        <li className="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                                            <small>MENU</small>
+                                        </li>
+                                        {/* <!-- /END Separator --> */}
+                                        {/* <!-- Menu with submenu --> */}
+                                        <a href="#submenu1" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                                            <div className="d-flex w-100 justify-content-start align-items-center">
+                                                <span className="fa fa-users fa-fw mr-3"></span>
+                                                <span className="menu-collapsed">Clientes</span>
+                                                <span className="submenu-icon ml-auto"></span>
+                                            </div>
+                                        </a>
+                                        {/* <!-- Submenu content --> */}
+                                        <div id='submenu1' className="collapse sidebar-submenu">
+                                            <Link to = "/clientes" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Buscar</span>
+                                            </Link>
+                                            {(currentUser.rol === 'Admin' || currentUser.rol === 'PM') ? (
+                                                <Link to="/nuevocliente" className="list-group-item list-group-item-action bg-dark text-white">
+                                                    <span className="menu-collapsed">Nuevo</span>
+                                                </Link>) : false 
+                                            }
                                         </div>
-                                    </a>
-                                    {/* <!-- Submenu content --> */}
-                                    <div id='submenu1' className="collapse sidebar-submenu">
-                                        <Link to = "/clientes" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Buscar</span>
-                                        </Link>
-                                        {(currentUser.rol === 'Admin' || currentUser.rol === 'PM') ? (
-                                            <Link to="/nuevocliente" className="list-group-item list-group-item-action bg-dark text-white">
-                                                <span className="menu-collapsed">Nuevo</span>
-                                            </Link>) : false 
-                                        }
-                                    </div>
-                                    <a href="#submenu2" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                                        <div className="d-flex w-100 justify-content-start align-items-center">
-                                            <span className="fa fa-project-diagram fa-fw mr-3"></span>
-                                            <span className="menu-collapsed">Proyectos</span>
-                                            <span className="submenu-icon ml-auto"></span>
+                                        <a href="#submenu2" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                                            <div className="d-flex w-100 justify-content-start align-items-center">
+                                                <span className="fa fa-project-diagram fa-fw mr-3"></span>
+                                                <span className="menu-collapsed">Proyectos</span>
+                                                <span className="submenu-icon ml-auto"></span>
+                                            </div>
+                                        </a>
+                                        {/* <!-- Submenu content --> */}
+                                        <div id='submenu2' className="collapse sidebar-submenu">
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
                                         </div>
-                                    </a>
-                                    {/* <!-- Submenu content --> */}
-                                    <div id='submenu2' className="collapse sidebar-submenu">
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
-                                    </div>
 
-                                    <a href="#submenu3" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                                        <div className="d-flex w-100 justify-content-start align-items-center">
-                                            <span className="fa fa-tasks fa-fw mr-3"></span>
-                                            <span className="menu-collapsed">Tareas</span>
-                                            <span className="submenu-icon ml-auto"></span>
+                                        <a href="#submenu3" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                                            <div className="d-flex w-100 justify-content-start align-items-center">
+                                                <span className="fa fa-tasks fa-fw mr-3"></span>
+                                                <span className="menu-collapsed">Tareas</span>
+                                                <span className="submenu-icon ml-auto"></span>
+                                            </div>
+                                        </a>
+                                        {/* <!-- Submenu content --> */}
+                                        <div id='submenu3' className="collapse sidebar-submenu">
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
                                         </div>
-                                    </a>
-                                    {/* <!-- Submenu content --> */}
-                                    <div id='submenu3' className="collapse sidebar-submenu">
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
-                                    </div>
 
-                                    <a href="#submenu4" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                                        <div className="d-flex w-100 justify-content-start align-items-center">
-                                            <span className="fa fa-user-tie fa-fw mr-3"></span>
-                                            <span className="menu-collapsed">Empleados</span>
-                                            <span className="submenu-icon ml-auto"></span>
+                                        <a href="#submenu4" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                                            <div className="d-flex w-100 justify-content-start align-items-center">
+                                                <span className="fa fa-user-tie fa-fw mr-3"></span>
+                                                <span className="menu-collapsed">Empleados</span>
+                                                <span className="submenu-icon ml-auto"></span>
+                                            </div>
+                                        </a>
+                                        {/* <!-- Submenu content --> */}
+                                        <div id='submenu4' className="collapse sidebar-submenu">
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
                                         </div>
-                                    </a>
-                                    {/* <!-- Submenu content --> */}
-                                    <div id='submenu4' className="collapse sidebar-submenu">
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
-                                    </div>
 
-                                    <a href="#submenu5" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                                        <div className="d-flex w-100 justify-content-start align-items-center">
-                                            <span className="fa fa-user fa-fw mr-3"></span>
-                                            <span className="menu-collapsed">Usuarios</span>
-                                            <span className="submenu-icon ml-auto"></span>
+                                        <a href="#submenu5" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                                            <div className="d-flex w-100 justify-content-start align-items-center">
+                                                <span className="fa fa-user fa-fw mr-3"></span>
+                                                <span className="menu-collapsed">Usuarios</span>
+                                                <span className="submenu-icon ml-auto"></span>
+                                            </div>
+                                        </a>
+                                        {/* <!-- Submenu content --> */}
+                                        <div id='submenu5' className="collapse sidebar-submenu">
+
+                                            <Link to="/usuario" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span clasName="menu-collapsed">Buscar/Modificar</span>
+                                            </Link>
+
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
                                         </div>
-                                    </a>
-                                    {/* <!-- Submenu content --> */}
-                                    <div id='submenu5' className="collapse sidebar-submenu">
 
-                                        <Link to="/usuario" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span clasName="menu-collapsed">Buscar/Modificar</span>
-                                        </Link>
 
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
+
+                                        {/* <!-- Separator with title --> */}
+                                        <li className="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                                            <small>CONSULTAS</small>
+                                        </li>
+                                        {/* <!-- /END Separator --> */}
+                                        <a href="#submenu6" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                                            <div className="d-flex w-100 justify-content-start align-items-center">
+                                                <span className="fa fa-file-pdf fa-fw mr-3"></span>
+                                                <span className="menu-collapsed">Reportes</span>
+                                                <span className="submenu-icon ml-auto"></span>
+                                            </div>
                                         </a>
-                                    </div>
-
-
-
-                                    {/* <!-- Separator with title --> */}
-                                    <li className="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                                        <small>CONSULTAS</small>
-                                    </li>
-                                    {/* <!-- /END Separator --> */}
-                                    <a href="#submenu6" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                                        <div className="d-flex w-100 justify-content-start align-items-center">
-                                            <span className="fa fa-file-pdf fa-fw mr-3"></span>
-                                            <span className="menu-collapsed">Reportes</span>
-                                            <span className="submenu-icon ml-auto"></span>
+                                        {/* <!-- Submenu content --> */}
+                                        <div id='submenu6' className="collapse sidebar-submenu">
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
+                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Lorem Ipsum</span>
+                                            </a>
                                         </div>
-                                    </a>
-                                    {/* <!-- Submenu content --> */}
-                                    <div id='submenu6' className="collapse sidebar-submenu">
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
-                                        <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Lorem Ipsum</span>
-                                        </a>
-                                    </div>
 
-                                    {/* <!-- Separator without title --> */}
-                                    <li className="list-group-item sidebar-separator menu-collapsed"></li>
-                                    {/* <!-- /END Separator --> */}
-                                    <a href="#" className="bg-dark list-group-item list-group-item-action">
-                                        <div className="d-flex w-100 justify-content-start align-items-center">
-                                            <span className="fa fa-info fa-fw mr-3"></span>
-                                            <span className="menu-collapsed">Acerca de</span>
-                                        </div>
-                                    </a>
-                                </ul>
-                                {/* <!-- List Group END--> */}
-                            </div>
-                            {/* <!-- sidebar-container END --> */}
+                                        {/* <!-- Separator without title --> */}
+                                        <li className="list-group-item sidebar-separator menu-collapsed"></li>
+                                        {/* <!-- /END Separator --> */}
+                                        <a href="#" className="bg-dark list-group-item list-group-item-action">
+                                            <div className="d-flex w-100 justify-content-start align-items-center">
+                                                <span className="fa fa-info fa-fw mr-3"></span>
+                                                <span className="menu-collapsed">Acerca de</span>
+                                            </div>
+                                        </a>
+                                    </ul>
+                                    {/* <!-- List Group END--> */}
+                                </div>
+                                {/* <!-- sidebar-container END --> */}
+                            
 
-                            {/* <!-- MAIN --> */ }
+
+
+
+                            {/* <!-- MAIN --> */}
                             <div className="col p-4">
-                                
                                 <PrivateRoute exact path="/" component={Home} />
                                 <PrivateRoute path="/clientes" roles={["Admin",'PM', 'Member']} component={Cliente} />
                                 {/*<Route path="/clientes" component={Cliente} />*/}
@@ -261,6 +265,8 @@ export default class App extends Component {
                                 */}
                             </div>
                             {/* <!-- Main Col END --> */}
+
+
                         </div>
                         {/* <!-- body-row END --> */}    
                         {/* <!-- NavBar END --> */}

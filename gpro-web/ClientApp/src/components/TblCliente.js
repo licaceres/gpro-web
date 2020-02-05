@@ -24,13 +24,13 @@ export class TblCliente extends Component {
                     { 'title': 'R. Social', 'data': 'razonSocialCliente' },
                     { 'title': 'Apellido', 'data': 'apellidoCliente' },
                     { 'title': 'Nombre', 'data': 'nombreCliente' },
-                    { 'title': 'Dirección', 'data': 'direccionCliente' },
+                    { 'title': 'Dirección', 'data': 'direccionCliente', 'visible': true},
                     { 'title': 'Teléfono', 'data': 'telefonoCliente' },
                     { 'title': 'E-Mail', 'data': 'emailCliente' },
                     {
                         'sortable': false,
                         'render': function (data, type, row) {
-                            return '<button type="button" id="btnEdit" class="btn btn-warning btn-sm" data-toggle="modal" data-id="' + row.idCliente +'" data-target="#exampleModalCenter" onclick="console.log(' + row.idCliente + ')"><span class="fa fa-edit"></span><span class="hidden-xs"></span> Editar</button >';
+                            return '<button type="button" id="btnEdit" class="btn btn-warning btn-sm align-middle" data-toggle="modal" data-id="' + row.idCliente +'" data-target="#exampleModalCenter" onclick="console.log(' + row.idCliente + ')"><span class="fa fa-edit"></span><span class="hidden-xs"></span> Editar</button >';
                         }
 
                     },
@@ -39,6 +39,7 @@ export class TblCliente extends Component {
                 language: {
                     'url': '//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json'
                 },
+                responsive: true,
 
             },
 
@@ -59,6 +60,11 @@ export class TblCliente extends Component {
         }
 
         btnEditar('#tblCliente tbody', '#btnEdit');
+
+
+        /* Estilos Tabla */
+        var theadTable = $('#tblCliente thead');
+        theadTable.addClass('thead-dark');
     }
 
     componentDidUpdate() {
@@ -75,9 +81,11 @@ export class TblCliente extends Component {
 
         return (
             <div className="border rounded p-2 mt-4">
-                <h5 className="border-bottom pb-2 mb-3">Resultados</h5>
-                <table id="tblCliente" className="table-sm table-striped table-hover" width="100%" ref={el => this.el = el}>
-                </table>
+                <h5 className="border-bottom pb-2">Resultados</h5>
+                <div className="table-responsive mt-3">
+                    <table id="tblCliente" className="table table-sm table-striped table-hove nowrap" width="100%" ref={ el => this.el = el}>
+                    </table>
+                </div>
 
                 {/* Bootstrap Modal */}
                 <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

@@ -120,7 +120,7 @@ export class Cliente extends Component {
                     <TblCliente data={consulta}>
                     </TblCliente>
                 }
-
+                
             </div>
         );
 
