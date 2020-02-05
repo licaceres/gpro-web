@@ -30,7 +30,7 @@ export class TblCliente extends Component {
                     {
                         'sortable': false,
                         'render': function (data, type, row) {
-                            return '<button type="button" id="btnEdit" class="btn btn-warning" data-toggle="modal" data-id="' + row.idCliente +'" data-target="#exampleModalCenter" onclick="console.log(' + row.idCliente + ')"> <span class="fa fa-edit"></span> <span class="hidden-xs"> Editar</span></button >';
+                            return '<button type="button" id="btnEdit" class="btn btn-warning btn-sm" data-toggle="modal" data-id="' + row.idCliente +'" data-target="#exampleModalCenter" onclick="console.log(' + row.idCliente + ')"><span class="fa fa-edit"></span><span class="hidden-xs"></span> Editar</button >';
                         }
 
                     },
