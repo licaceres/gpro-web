@@ -102,6 +102,23 @@ namespace gpro_web.Controllers
             return Ok(userDtos);
         }
 
+        //[Authorize (Roles = "Admin")]
+        [AllowAnonymous]
+        [HttpGet("apynom/{apellido}/{nombre}")]
+        public IActionResult GetByApyNom(string apellido, string nombre)
+        {
+            var users = _userService.GetByApyNom(apellido, nombre);
+            var usersDto = _mapper.Map<IList<UserEmplDto>>(users);
+
+            for (int i = 0; i < usersDto.Count(); i++)
+            {
+                //usersDto.ElementAt(i).Id = 
+                
+            }
+
+            return Ok(usersDto);
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {

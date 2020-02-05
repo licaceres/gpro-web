@@ -4,6 +4,7 @@ import { handleResponse } from './handle-response';
 export const userService = {
     getAll,
     getById,
+    getByApyNom,
     register
 };
 
@@ -17,10 +18,18 @@ function getById(id) {
     return fetch(`http://localhost:60932/usuarios/${id}`, requestOptions).then(handleResponse);
 }
 
+function getByApyNom(apellido, nombre) {
+    const requestOptions = { method: 'GET', headers: authHeader() }
+    return fetch(`http://localhost:60932/usuarios/apynom/${apellido}/${nombre}`, requestOptions).then(handleResponse);
+}
+
 function register(user) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            ...authHeader()
+        },
         body: JSON.stringify(user)
     };
 
