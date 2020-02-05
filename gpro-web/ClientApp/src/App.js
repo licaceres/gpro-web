@@ -154,7 +154,7 @@ export default class App extends Component {
                                     {/* <!-- Submenu content --> */}
                                     <div id='submenu3' className="collapse sidebar-submenu">
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span clasName="menu-collapsed">Lorem Ipsum</span>
+                                            <span className="menu-collapsed">Lorem Ipsum</span>
                                         </a>
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
                                             <span className="menu-collapsed">Lorem Ipsum</span>
@@ -171,7 +171,7 @@ export default class App extends Component {
                                     {/* <!-- Submenu content --> */}
                                     <div id='submenu4' className="collapse sidebar-submenu">
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span clasName="menu-collapsed">Lorem Ipsum</span>
+                                            <span className="menu-collapsed">Lorem Ipsum</span>
                                         </a>
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
                                             <span className="menu-collapsed">Lorem Ipsum</span>
@@ -188,7 +188,7 @@ export default class App extends Component {
                                     {/* <!-- Submenu content --> */}
                                     <div id='submenu5' className="collapse sidebar-submenu">
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span clasName="menu-collapsed">Lorem Ipsum</span>
+                                            <span className="menu-collapsed">Lorem Ipsum</span>
                                         </a>
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
                                             <span className="menu-collapsed">Lorem Ipsum</span>
@@ -212,7 +212,7 @@ export default class App extends Component {
                                     {/* <!-- Submenu content --> */}
                                     <div id='submenu6' className="collapse sidebar-submenu">
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span clasName="menu-collapsed">Lorem Ipsum</span>
+                                            <span className="menu-collapsed">Lorem Ipsum</span>
                                         </a>
                                         <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
                                             <span className="menu-collapsed">Lorem Ipsum</span>

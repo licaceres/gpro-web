@@ -27,7 +27,7 @@ export class Cliente extends Component {
         const { mostrar, consulta } = this.state;
         
         return (
-            <div className="container">
+            <div>
                 <Formik
                     initialValues={{ dato: '', cuit: '' }}
 
