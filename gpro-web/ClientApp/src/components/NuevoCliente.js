@@ -12,8 +12,7 @@ export class NuevoCliente extends Component {
     static displayName = NuevoCliente.name;
     constructor(props) {
         super(props);
-        document.body.style.backgroundColor = '#FFFFFF';
-        document.body.style.paddingTop = '53px';
+        document.body.style.backgroundColor = '#FFFFFF';        
         this.state = {
             consulta: [],
             post: null
