@@ -52,7 +52,7 @@ export default class App extends Component {
                         <div>
 
                             {/* Bootstrap NavBar */}
-                            <nav className="navbar navbar-expand-md navbar-dark home-navbar-bg" id="barranav">
+                            <nav className="navbar fixed-top navbar-expand-md navbar-dark home-navbar-bg" id="barranav">
 
                                 <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

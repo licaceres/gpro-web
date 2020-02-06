@@ -7,7 +7,7 @@ export class Home extends Component {
     constructor(props) {
         super(props);
         document.body.style.backgroundColor = '#FFFFFF';
-        
+        document.body.style.marginTop = '53px';
         this.state = {
             currentUser: authenticationService.currentUserValue,
             users: null
