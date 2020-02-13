@@ -1,4 +1,5 @@
-﻿using gpro_web.Models;
+﻿using gpro_web.Helpers;
+using gpro_web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +53,9 @@ public class ClienteService : IClienteService
 
     public void NuevoCliente(Cliente cliente)
     {
-            _context.Cliente.Add(cliente);
+            if (_context.Cliente.Any(x => x.IdCliente == cliente.IdCliente))
+                throw new AppException("El cliente " + cliente.IdCliente + " ya existe."); 
+            _context.Cliente.Add(cliente);  
             _context.SaveChanges();
     }
 

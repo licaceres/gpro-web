@@ -60,11 +60,22 @@ namespace gpro_web.Controllers
         }
 
         [Authorize(Roles = "Admin,PM")]
-        [HttpGet("act")]
-        public IActionResult UpdateCliente(Cliente cliente)
+        [HttpPut("update")]
+        public ActionResult UpdateCliente([FromBody]ClienteDto clienteDtos)
         {
-            _clienteService.UpdateCliente(cliente);
-            return Ok(cliente);
+
+            var cliente = _mapper.Map<Cliente>(clienteDtos);
+            
+            try
+            {
+                _clienteService.UpdateCliente(cliente);
+                return Ok(cliente);
+            }
+            catch (AppException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            
         }
 
         [Authorize(Roles = "Admin,PM")]
@@ -72,8 +83,16 @@ namespace gpro_web.Controllers
         public IActionResult NuevoCliente([FromBody]ClienteDto clienteDtos)
         {
             var cliente = _mapper.Map<Cliente>(clienteDtos);
-            _clienteService.NuevoCliente(cliente);
-            return Ok(cliente);
+
+            try
+            {
+                _clienteService.NuevoCliente(cliente);
+                return Ok(cliente);
+            }
+            catch (AppException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }
