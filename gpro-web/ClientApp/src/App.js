@@ -102,10 +102,7 @@ export default class App extends Component {
 
                                 {/*  Sidebar */}
                                 <div className="col-2 d-none d-md-block" id="sidebar-container">
-                                        <Link to="/nuevousuario" className="list-group-item list-group-item-action bg-dark text-white">
-                                            <span className="menu-collapsed">Nuevo</span>
-                                        </Link>
-                                    </div>
+
                                     {/* Bootstrap List Group */}
                                     <ul className="list-group">
 
@@ -202,22 +199,17 @@ export default class App extends Component {
                                             <Link to="/usuario" className="list-group-item list-group-item-action bg-dark text-white">
                                                 <span clasName="menu-collapsed">Buscar/Modificar</span>
                                             </Link>
-                                            <a href="#" className="list-group-item list-group-item-action bg-dark text-white">
-                                                <span className="menu-collapsed">Lorem Ipsum</span>
-                                            </a>
+                                            <Link to="/nuevousuario" className="list-group-item list-group-item-action bg-dark text-white">
+                                                <span className="menu-collapsed">Nuevo</span>
+                                            </Link>
                                         </div>
 
-<<<<<<< HEAD
+
                                         {/* <!-- Separator with title --> */}
                                         <li className="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                                             <small>CONSULTAS</small>
                                         </li>
                                         {/* <!-- /END Separator --> */}
-=======
-                                <PrivateRoute path="/nuevocliente" roles={["Admin", 'PM']} component={NuevoCliente} />
-                                <PrivateRoute path="/usuario" roles={["Admin"]} component={Usuario} />
-                                <PrivateRoute path="/nuevousuario" roles={["Admin"]} component={NuevoUsuario} />
->>>>>>> incompleto Nuevo usuario
 
                                         {/* <!-- Menu with submenu --> */}
                                         <a href="#submenu6" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
@@ -256,8 +248,11 @@ export default class App extends Component {
                                     <PrivateRoute exact path="/" component={Home} />
                                     <PrivateRoute path="/clientes" roles={["Admin", 'PM', 'Member']} component={Cliente} />
                                     {/*<Route path="/clientes" component={Cliente} />*/}
-                                    <PrivateRoute path="/nuevocliente" roles={["Admin", 'PM']} component={NuevoCliente} />
-                                    <PrivateRoute path="/usuario" roles={["Admin"]} component={Usuario} />
+                                <PrivateRoute path="/nuevocliente" roles={["Admin", 'PM']} component={NuevoCliente} />
+                                <PrivateRoute path="/usuario" roles={["Admin"]} component={Usuario} />
+                                <PrivateRoute path="/nuevousuario" roles={["Admin"]} component={NuevoUsuario} />
+
+
                                 </div>
                                 {/* <!-- Main Col END --> */}
                             </div>
