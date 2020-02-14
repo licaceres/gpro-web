@@ -102,7 +102,10 @@ export default class App extends Component {
 
                                 {/*  Sidebar */}
                                 <div className="col-2 d-none d-md-block" id="sidebar-container">
-
+                                        <Link to="/nuevousuario" className="list-group-item list-group-item-action bg-dark text-white">
+                                            <span className="menu-collapsed">Nuevo</span>
+                                        </Link>
+                                    </div>
                                     {/* Bootstrap List Group */}
                                     <ul className="list-group">
 
@@ -204,12 +207,12 @@ export default class App extends Component {
                                             </Link>
                                         </div>
 
-
                                         {/* <!-- Separator with title --> */}
                                         <li className="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                                             <small>CONSULTAS</small>
                                         </li>
                                         {/* <!-- /END Separator --> */}
+
 
                                         {/* <!-- Menu with submenu --> */}
                                         <a href="#submenu6" data-toggle="collapse" aria-expanded="false" className="bg-dark list-group-item list-group-item-action flex-column align-items-start">
